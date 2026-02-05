@@ -39,10 +39,11 @@ public:
                 break;
             }
         }
-
+        //   if both have letters compare
         if(i >= 0 && j >= 0){
             if(s[i] != t[j]) return false;
         }
+        // if only one have charcter than not equal for equal string both have same number of charcter
         else{
             if(i >= 0 || j >=0) return false;
         }
