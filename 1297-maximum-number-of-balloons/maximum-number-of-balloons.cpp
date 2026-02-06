@@ -4,19 +4,21 @@ public:
       
 
         
-            unordered_map<char,int> mp;
+           unordered_map<char,int>freq;
+           for(auto &it : text){
+            freq[it]++;
+           }
+           int count = 0 ;
+           
+            count = min({
+                freq['b'],
+                freq['a'],
+                freq['l']/2,
+                freq['o']/2,
+                freq['n']
 
-            for(auto it: text){
-                mp[it]++;
-            }
-            int ans = min({
-                mp['b'],
-                mp['a'],
-                mp['l']/2,
-                mp['o']/2,
-                mp['n']
             });
-            return ans;
+           return count;
 
     }
 };
