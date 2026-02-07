@@ -11,6 +11,7 @@ public:
         while (j < n) {
 
             // 🔴 STEP 1: remove duplicate if present
+            // this loop will only run when duplicate present as .count function return only 0 or 1 in set like true or false
             while (st.count(nums[j])) {
                 st.erase(nums[i]);
                 windowSum -= nums[i];
@@ -26,6 +27,7 @@ public:
             if (j - i + 1 < k) {
                 j++;
             }
+            // in first iteration 1,5,4 inserted and windiw size = k now its sum stored in maxsum nd window slided so 1 deleted and windowsum decremented with the nums[i]
             else if (j - i + 1 == k) {
                 maxSum = max(maxSum, windowSum);
 
@@ -39,3 +41,5 @@ public:
         return maxSum;
     }
 };
+// Input: nums = [1,5,4,2,9,9,9], k = 3
+// Output: 15
