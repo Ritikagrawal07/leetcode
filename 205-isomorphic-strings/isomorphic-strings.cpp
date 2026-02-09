@@ -6,8 +6,10 @@ public:
         unordered_map<char,char>TtoSmap;
 
         for(int i = 0 ;  i < s.length() ; i++){
+            // both maps are empty
 
             if(!StoTmap[s[i]]  && !TtoSmap[t[i]]){
+                // e->a && a_>e mapping in both direction
                 StoTmap[s[i]] = t[i];
                 TtoSmap[t[i]] = s[i];
             }
