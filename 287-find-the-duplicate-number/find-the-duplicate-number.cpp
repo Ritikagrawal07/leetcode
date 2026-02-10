@@ -5,8 +5,10 @@ public:
         for(int num : nums){
             if(seen.find(num) != seen.end() ){
                 return num;
+            }else{
+                seen.insert(num);
             }
-            seen.insert(num);
+            
         }return -1;
     }
 };
