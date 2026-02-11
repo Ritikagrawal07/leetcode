@@ -13,8 +13,8 @@ public:
         }return true;
     }
     string firstPalindrome(vector<string>& words) {
-        for(auto x : words){
-            if(isPalindrome(x))return x;
+        for(int i = 0; i < words.size() ; i++){
+            if(isPalindrome(words[i]))return words[i];
         }
         return "";
 
