@@ -12,24 +12,27 @@
 class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
-       
+        queue<TreeNode*>q;
         vector<vector<int>>ans;
-        traversal(root,0,ans);
+        // solve bfs by iteretive and dfs recursive
+        if(root == NULL)return ans;
+        q.push(root);
+        while(q.size()){
+             vector<int>v;
+             int levelSize = q.size();
+             for(int i = 0 ; i < levelSize ;i++){
+                TreeNode* curr = q.front();
+                q.pop();
+                v.push_back(curr->val);
+                if(curr->left != NULL)q.push(curr->left);
+                if(curr->right != NULL)q.push(curr->right);
+               
+             }
+        ans.push_back(v);
+        }
         return ans;
-
+ 
     }
 
-    void traversal(TreeNode* root ,int level,vector<vector<int>>&ans){
-       if(root == NULL)return;
 
-    //    pushing empty vector for new levels
-       if(ans.size() == level){
-        ans.push_back(vector<int>());
-       }
-        ans[level].push_back(root->val);
-
-        traversal(root->left,level+1,ans);
-        traversal(root->right,level+1,ans);
-       
-    }
 };
